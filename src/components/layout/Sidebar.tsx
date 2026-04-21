@@ -20,8 +20,12 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
-  { name: "Daily Report", href: "/report", icon: FileText },
   { name: "Meal Logger", href: "/logger", icon: Utensils },
+  { name: "Calorie Tracker", href: "/tracker", icon: FileText },
+  { name: "Healthy Recipes", href: "/recipes", icon: ImageIcon },
+  { name: "Fitness Diets", href: "/diets", icon: CalendarCheck },
+  { name: "Junk Food Info", href: "/junk-food", icon: Frown },
+  { name: "Supplement Store", href: "/store", icon: ShoppingCart },
 ];
 
 export function Sidebar() {

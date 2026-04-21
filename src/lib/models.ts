@@ -52,3 +52,46 @@ const AIReportSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 export const AIReport = mongoose.models.AIReport || mongoose.model("AIReport", AIReportSchema);
+
+// --- RECIPE SCHEMA ---
+const RecipeSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  ingredients: [{ type: String }],
+  steps: [{ type: String }],
+  calories: { type: Number },
+  macros: {
+    protein: { type: Number },
+    carbs: { type: Number },
+    fats: { type: Number }
+  },
+  image: { type: String },
+  goalType: { type: String, enum: ["Weight loss", "Muscle gain", "Maintenance", "General"] }
+}, { timestamps: true });
+
+export const Recipe = mongoose.models.Recipe || mongoose.model("Recipe", RecipeSchema);
+
+// --- FOOD ITEM SCHEMA ---
+const FoodItemSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  calories: { type: Number, required: true },
+  macros: {
+    protein: { type: Number },
+    carbs: { type: Number },
+    fats: { type: Number }
+  }
+}, { timestamps: true });
+
+export const FoodItem = mongoose.models.FoodItem || mongoose.model("FoodItem", FoodItemSchema);
+
+// --- PRODUCT SCHEMA ---
+const ProductSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  category: { type: String, enum: ["Protein", "Multivitamins", "Omega-3", "Pre/Post workout", "Other"] },
+  price: { type: Number, required: true },
+  benefits: [{ type: String }],
+  usage: { type: String },
+  rating: { type: Number, default: 0 },
+  image: { type: String }
+}, { timestamps: true });
+
+export const Product = mongoose.models.Product || mongoose.model("Product", ProductSchema);
